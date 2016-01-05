@@ -1,7 +1,7 @@
 var WIDGET = (function(WIDGET) {
 
 	WIDGET.rate = '1.85';
-	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/1.0.1/';
+	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/1.0.3/';
 	WIDGET.link = 'http://www.sane-sart.com/rape-clock/';
 
 	WIDGET.sendRequest = function(url,callback,postData) {
@@ -113,7 +113,7 @@ var WIDGET = (function(WIDGET) {
 	template += "</div>";
 
 	template += "<div class='ss-footer'>";
-	template += "<div class='ss-share' id='ss-share'>Get this counter for your own site.</div>";
+	template += "<div class='ss-share' id='ss-share'>Get this clock for your own site.</div>";
 	template += "<div class='ss-link'>Sane-Sart Online + Clinical <a class='ss-source-link' href='"+ WIDGET.link +"' target='_blank'>*source</a></div>"
 	template += "</div>";
 	template += "</div>";
@@ -121,9 +121,9 @@ var WIDGET = (function(WIDGET) {
 	template += "</div>";
 
 	template += "<div id='sane-sart-modal'>";
-	template += "<div class='ss-modal-title'>Get the Sane-Sart counter</div>";
+	template += "<div class='ss-modal-title'>Get the SANE-SART Rape Clock</div>";
 	template += "<div class='ss-modal-close' id='ss-modal-close'>x</div>";
-	template += "<div class='ss-modal-body'><p>To add this counter to your website, just copy and paste the following tag to your pages:</p><textarea><script src='"+base_url+"sane-sart-counter.js'></script></textarea></div>";
+	template += "<div class='ss-modal-body'><p>To add this clock to your website, just copy and paste the following tag to your pages:</p><textarea><script src='"+base_url+"sane-sart-counter.js'></script></textarea></div>";
 	template += "</div>"
 
 	document.write(template);
