@@ -1,7 +1,7 @@
 var WIDGET = (function(WIDGET) {
 
 	WIDGET.rate = '1.85';
-	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/2016/';
+	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/1.0.0/';
 	WIDGET.link = 'http://www.sane-sart.com/rape-clock/';
 
 	WIDGET.sendRequest = function(url,callback,postData) {
