@@ -157,6 +157,15 @@
 	font-size: 10pt !important;
 	opacity: 0;
 }
+#sane-sart-modal p {
+	color: #000 !important;
+	text-align: left !important;
+	padding: 10px !important;
+
+	font-family: sans-serif, Tahoma, Arial !important;
+	line-height: 1.5 !important;
+	font-size: 10pt !important;
+}
 .ss-modal-title {
 	border-bottom: 1px solid #ccc;
 	padding: 0 0 5px 0;
