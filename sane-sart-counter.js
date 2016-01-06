@@ -1,7 +1,7 @@
 var WIDGET = (function(WIDGET) {
 
 	WIDGET.rate = '1.85';
-	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/1.0.5/';
+	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/1.0.6/';
 	WIDGET.link = 'http://www.sane-sart.com/rape-clock/';
 
 	WIDGET.sendRequest = function(url,callback,postData) {
@@ -107,7 +107,7 @@ var WIDGET = (function(WIDGET) {
 	template += "<span>"+ date_r +"</span>";
 	template += " - <span id='ss-clock'></span>";
 	template += "</div>";
-	template += "<div class='ss-stat-info'>Every <strong>"+ WIDGET.rate +" minutes</strong>*<br>an American is sexually assaulted.</div>";
+	template += "<div class='ss-stat-info'>Every <strong>"+ Math.round(WIDGET.rate) +" minutes</strong>*<br>an American is sexually assaulted.</div>";
 	template += "<div class='ss-counter-display' id='ss-counter-display'></div>";
 	template += "<div class='ss-counter-text'>Sexual assaults since 1.01."+year+"</div>";
 	template += "</div>";
