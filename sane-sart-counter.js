@@ -1,75 +1,15 @@
 var WIDGET = (function(WIDGET) {
 
 	WIDGET.rate = '1.85';
-	WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/0121f567d89e506056471f010c6fddbc6ba81818/';
+	if (WIDGET.base_url === undefined) WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/0121f567d89e506056471f010c6fddbc6ba81818/';
 	WIDGET.link = 'http://www.sane-sart.com/';
-
-	WIDGET.sendRequest = function(url,callback,postData) {
-	    var req = WIDGET.createXMLHTTPObject();
-	    if (!req) return;
-	    var method = (postData) ? "POST" : "GET";
-	    req.open(method,url,true);
-	    req.setRequestHeader('User-Agent','XMLHTTP/1.0');
-	    if (postData)
-	        req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	    req.onreadystatechange = function () {
-	        if (req.readyState != 4) return;
-	        if (req.status != 200 && req.status != 304) {
-	//          alert('HTTP error ' + req.status);
-	            return;
-	        }
-	        callback(req);
-	    }
-	    if (req.readyState == 4) return;
-	    req.send(postData);
-	}
-
-	WIDGET.XMLHttpFactories = [
-	    function () {return new XMLHttpRequest()},
-	    function () {return new ActiveXObject("Msxml2.XMLHTTP")},
-	    function () {return new ActiveXObject("Msxml3.XMLHTTP")},
-	    function () {return new ActiveXObject("Microsoft.XMLHTTP")}
-	];
-
-	WIDGET.createXMLHTTPObject = function() {
-	    var xmlhttp = false;
-	    for (var i=0;i<WIDGET.XMLHttpFactories.length;i++) {
-	        try {
-	            xmlhttp = WIDGET.XMLHttpFactories[i]();
-	        }
-	        catch (e) {
-	            continue;
-	        }
-	        break;
-	    }
-	    return xmlhttp;
-	}
-
-	function startTime() {
-	    var today = new Date();
-	    var h = today.getHours();
-	    var m = today.getMinutes();
-	    var s = today.getSeconds();
-	    m = checkTime(m);
-	    s = checkTime(s);
-	    document.getElementById('ss-clock').innerHTML =
-	    h + ":" + m + ":" + s;
-	    var t = setTimeout(startTime, 500);
-	}
-	function checkTime(i) {
-	    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-	    return i;
-	}
-	function padLeft(nr, n, str){
-	    return Array(n-String(nr).length+1).join(str||'0')+nr;
-	}
-
-
+	
 	var base_url = WIDGET.base_url;
 
-
+	var theme = WIDGET.theme;
+	if (theme === undefined) theme = 'default';
 	var css = document.createElement('link');
-	css.href=base_url+'theme/default/style.css';
+	css.href=base_url+'theme/'+theme+'/style.css';
 	css.rel='stylesheet';
 	css.type = 'text/css';
 
@@ -145,8 +85,7 @@ var WIDGET = (function(WIDGET) {
 		if (toggle.getAttribute('data-status') == 'collapsed') {
 			toggle.setAttribute('data-status', 'expanded');
 			if (toggle_to) clearInterval(toggle_to);
-			console.log(toggle_box.clientHeight);
-
+			
 			animate(toggle_box, 'height', toggle_box.clientHeight, toggle_box.getAttribute('data-ini-height'), 400);
 		}
 		else {
@@ -207,5 +146,80 @@ var WIDGET = (function(WIDGET) {
 	WIDGET.count();
 
 	startTime();
+
+	WIDGET.sendRequest = function(url,callback,postData) {
+	    var req = WIDGET.createXMLHTTPObject();
+	    if (!req) return;
+	    var method = (postData) ? "POST" : "GET";
+	    req.open(method,url,true);
+	    req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+	    if (postData)
+	        req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	    req.onreadystatechange = function () {
+	        if (req.readyState != 4) return;
+	        if (req.status != 200 && req.status != 304) {
+	//          alert('HTTP error ' + req.status);
+	            return;
+	        }
+	        callback(req);
+	    }
+	    if (req.readyState == 4) return;
+	    req.send(postData);
+	}
+
+	WIDGET.XMLHttpFactories = [
+	    function () {return new XMLHttpRequest()},
+	    function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+	    function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+	    function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+	];
+
+	WIDGET.createXMLHTTPObject = function() {
+	    var xmlhttp = false;
+	    for (var i=0;i<WIDGET.XMLHttpFactories.length;i++) {
+	        try {
+	            xmlhttp = WIDGET.XMLHttpFactories[i]();
+	        }
+	        catch (e) {
+	            continue;
+	        }
+	        break;
+	    }
+	    return xmlhttp;
+	}
+
+	function startTime() {
+	    var today = new Date();
+	    var h = today.getHours();
+	    var m = today.getMinutes();
+	    var s = today.getSeconds();
+	    m = checkTime(m);
+	    s = checkTime(s);
+	    document.getElementById('ss-clock').innerHTML =
+	    h + ":" + m + ":" + s;
+	    var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+	    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	    return i;
+	}
+	function padLeft(nr, n, str){
+	    return Array(n-String(nr).length+1).join(str||'0')+nr;
+	}
+
+	if (WIDGET.theme != 'default') {
+		window.addEventListener('resize', function(){
+			var widget = document.getElementById('sane-sart-counter');
+			var width = widget.offsetWidth;
+			var margin = width/24;
+			document.getElementById('ss-counter-display').style.fontSize = width/8 + 'px';
+			document.getElementById('ss-counter-display').style.letterSpacing = (width/12) - margin/10 + 'px';
+			document.getElementById('ss-counter-display').style.paddingLeft = margin + 'px';
+			
+
+		}, true);
+		setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 100);
+	}
+
 
 }(WIDGET || {}));

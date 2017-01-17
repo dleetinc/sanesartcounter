@@ -1,0 +1,165 @@
+#sane-sart-counter {
+	font-family: sans-serif, Tahoma, Arial;
+	line-height: 2;
+	font-size: 10pt;
+	width: 100%;
+	max-width: 280px;
+	min-width: 170px;
+}
+.ss-toggle {
+	display: none;
+}
+.ss-toggle-icon {
+	display: none;
+}
+.ss-toggle[data-status="collapsed"] .ss-toggle-icon {
+	background-position: center 6px;
+}
+#ss-toggle-box {
+	overflow: hidden;
+}
+.ss-body {
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2f282a+19,7f7f82+55,423e41+90 */
+	background: #2f282a; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #2f282a 19%, #7f7f82 55%, #423e41 90%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  #2f282a 19%,#7f7f82 55%,#423e41 90%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  #2f282a 19%,#7f7f82 55%,#423e41 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f282a', endColorstr='#423e41',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
+
+	border-radius: 15px 15px 0 0;
+	padding: 5px 10px;
+	color: #fff;
+	text-align: center;
+	font-size: 10pt;
+}
+.ss-header {
+	font-size: 8pt;
+	text-transform: uppercase;
+	color: #A8A9AB;
+	border-bottom: 1px solid #A8A9AB;
+}
+.ss-counter-text {
+	text-transform: uppercase;
+}
+.ss-counter-display {
+	width: 100%;
+	height: 60px;
+	position: relative;
+	font-size: 49px;
+
+	background-image: url('https://cdn.rawgit.com/dleetinc/sanesartcounter/master/theme/default/counter-display.png');
+	background-size: 100% auto;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.ss-count {
+	color: #fff;
+    
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    opacity: 0.9;
+    text-align: left;
+    top: 0;
+    display: none;
+}
+#sane-sart-counter[data-size="small"] .ss-count {
+
+}
+.ss-count:last-child {
+	display: block;
+}
+.ss-footer {
+	background: #C6C8C9;
+	padding: 10px;
+	color: #808083;
+	padding-bottom: 0;
+	border-radius: 0 0 15px 15px;
+}
+.ss-link {
+	text-transform: uppercase;
+	padding: 5px 0;
+	font-size: 9pt;
+}
+.ss-source-link {
+	text-transform: none;
+	float: right;
+	color: #808083;
+}
+.ss-source-link:hover {
+	color: #646265;
+}
+.ss-share {
+	background: #2AB8E6;
+	color: #fff;
+	border: 1px inset #fff;
+	padding: 5px;
+	text-align: left;
+	padding-left: 30px;
+	background-image: url('https://cdn.rawgit.com/dleetinc/sanesartcounter/master/theme/default/share-icon.png');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+.ss-stat-info {
+	line-height: 1.5;
+	padding: 5px 0;
+}
+
+#sane-sart-modal {
+	position: fixed;
+	width: 300px;
+	top: 30px;
+	z-index: 0;
+	left: 50%;
+	margin-left: -125px;
+
+	height: 186px;
+	top: 50%;
+	margin-top: -93px;
+
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	box-shadow: 0px 0px 15px #000;
+	background: #fff;
+	padding: 10px;
+
+	font-family: sans-serif, Tahoma, Arial;
+	line-height: 1.5;
+	font-size: 10pt;
+	opacity: 0;
+}
+.ss-modal-title {
+	border-bottom: 1px solid #ccc;
+	padding: 0 0 5px 0;
+	font-weight: bold;
+	font-size: 11pt;
+}
+.ss-modal-body {
+
+	padding: 5px 0;
+}
+.ss-modal-body textarea {
+	width: 100%;
+}
+.ss-modal-close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 30px;
+	height: 30px;
+	background: #000;
+	color: #fff;
+	border-radius: 15px;
+	text-align: center;
+	line-height: 26px;
+	font-size: 26px;
+	cursor: pointer;
+}
+.ss-share {
+	cursor: pointer;
+}
