@@ -1,7 +1,7 @@
 var WIDGET = (function(WIDGET) {
 
 	WIDGET.rate = '1.85';
-	if (WIDGET.base_url === undefined) WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/0121f567d89e506056471f010c6fddbc6ba81818/';
+	if (WIDGET.base_url === undefined) WIDGET.base_url = 'https://cdn.rawgit.com/dleetinc/sanesartcounter/366d615f/';
 	WIDGET.link = 'http://www.sane-sart.com/';
 	
 	var base_url = WIDGET.base_url;
