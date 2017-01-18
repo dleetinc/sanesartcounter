@@ -63,7 +63,15 @@ var WIDGET = (function(WIDGET) {
 	template += "<div id='sane-sart-modal'>";
 	template += "<div class='ss-modal-title'>Get the Sane-Sart counter</div>";
 	template += "<div class='ss-modal-close' id='ss-modal-close'>x</div>";
-	template += "<div class='ss-modal-body'><p>To add this counter to your website, just copy and paste the following tag to your pages:</p><textarea><script src='"+base_url+"sane-sart-counter.js'></script></textarea></div>";
+	template += "<div class='ss-modal-body'><p>The counter has two flavors, inline and drawer. To add this counter to your website, choose your option and copy and paste the following tag to your pages:</p>";
+
+	template += "<strong>Option 1 - Drawer mode</strong>";
+	template += "<textarea><script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
+
+	template += "<strong>Option 2 - Inline <small><em>(add inside an element)</em></small></strong>";
+	template += "<textarea><script>WIDGET.theme = 'inline';</script>\n<script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
+
+	template += "</div>";
 	template += "</div>"
 
 	document.write(template);
