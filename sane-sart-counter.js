@@ -69,7 +69,7 @@ var WIDGET = (function(WIDGET) {
 	template += "<textarea><script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
 
 	template += "<strong>Option 2 - Inline <small><em>(add inside an element)</em></small></strong>";
-	template += "<textarea><script>WIDGET.theme = 'inline';</script>\n<script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
+	template += "<textarea><script>var WIDGET = {'theme': 'inline'};</script>\n<script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
 
 	template += "</div>";
 	template += "</div>"
