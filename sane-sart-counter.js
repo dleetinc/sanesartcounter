@@ -63,12 +63,12 @@ var WIDGET = (function(WIDGET) {
 	template += "<div id='sane-sart-modal'>";
 	template += "<div class='ss-modal-title'>Get the Sane-Sart counter</div>";
 	template += "<div class='ss-modal-close' id='ss-modal-close'>x</div>";
-	template += "<div class='ss-modal-body'><p>The counter has two flavors, inline and drawer. To add this counter to your website, choose your option and copy and paste the following tag to your pages:</p>";
+	template += "<div class='ss-modal-body'><p>The counter has two options, inline and drawer. To add this counter to your website, choose your option and copy and paste the following snippets to your page html:</p>";
 
-	template += "<strong>Option 1 - Drawer mode</strong>";
+	template += "<strong>Drawer <small><em>(over page at bottom right)</em></small></strong>";
 	template += "<textarea><script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
 
-	template += "<strong>Option 2 - Inline <small><em>(add inside an element)</em></small></strong>";
+	template += "<strong>Inline <small><em>(add inside page content)</em></small></strong>";
 	template += "<textarea><script>var WIDGET = {'theme': 'inline'};</script>\n<script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
 
 	template += "</div>";
@@ -218,15 +218,16 @@ var WIDGET = (function(WIDGET) {
 	if (WIDGET.theme != 'default') {
 		window.addEventListener('resize', function(){
 			var widget = document.getElementById('sane-sart-counter');
-			var width = widget.offsetWidth;
+			var width = widget.offsetWidth - 20;
 			var margin = width/24;
-			document.getElementById('ss-counter-display').style.fontSize = width/8 + 'px';
-			document.getElementById('ss-counter-display').style.letterSpacing = (width/12) - margin/10 + 'px';
+			width = width - margin;
+			document.getElementById('ss-counter-display').style.fontSize = Math.floor(width/6) + 'px';
+			document.getElementById('ss-counter-display').style.letterSpacing = Math.floor(width/12) + 'px';
 			document.getElementById('ss-counter-display').style.paddingLeft = margin + 'px';
 			
 
 		}, true);
-		setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 100);
+		setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 250);
 	}
 
 
