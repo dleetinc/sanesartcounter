@@ -227,7 +227,7 @@ var WIDGET = (function(WIDGET) {
 			
 
 		}, true);
-		setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 250);
+		setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 450);
 	}
 
 
