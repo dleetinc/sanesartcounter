@@ -6,14 +6,26 @@ var WIDGET = (function(WIDGET) {
 	
 	var base_url = WIDGET.base_url;
 
+	WIDGET.loadCSS = function(url, callback){
+	    var link = document.createElement('link');
+	        link.type = 'text/css';
+	        link.rel = 'stylesheet';
+	        link.href = url;
+
+	    document.getElementsByTagName('head')[0].appendChild(link);
+
+	    var img = document.createElement('img');
+	        img.onerror = function(){
+	            if(callback) callback(link);
+	        }
+	        img.src = url;
+	}
+
 	var theme = WIDGET.theme;
 	if (theme === undefined) theme = 'default';
-	var css = document.createElement('link');
-	css.href=base_url+'theme/'+theme+'/style.css';
-	css.rel='stylesheet';
-	css.type = 'text/css';
-
-	document.getElementsByTagName('head')[0].appendChild(css);
+	var link = base_url+'theme/'+theme+'/style.css';
+	
+	WIDGET.loadCSS(link, fix_layout);
 
 	var monthNames = [
 		"January", "February", "March",
@@ -74,8 +86,9 @@ var WIDGET = (function(WIDGET) {
 	template += "</div>";
 	template += "</div>"
 
+	
 	document.write(template);
-
+	
 	var modal = document.getElementById('sane-sart-modal');
 	document.getElementById('ss-share').onclick = function() {
 		modal.style.zIndex = 999999;
@@ -227,7 +240,13 @@ var WIDGET = (function(WIDGET) {
 			
 
 		}, true);
-		setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 450);
+		//setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 450);
+	}
+
+	function fix_layout() {
+		if (WIDGET.theme != 'default') { 
+			window.dispatchEvent(new Event('resize'));
+		}
 	}
 
 
