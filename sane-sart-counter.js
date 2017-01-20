@@ -161,6 +161,7 @@ var WIDGET = (function(WIDGET) {
 		new_count.innerHTML = count;
 	
 		counter_display.appendChild(new_count);
+		fix_layout();
 		if (count_to) clearTimeout(count_to);
 		count_to = setTimeout(WIDGET.count, parseInt(WIDGET.rate * 60000));
 	}
@@ -228,25 +229,35 @@ var WIDGET = (function(WIDGET) {
 	    return Array(n-String(nr).length+1).join(str||'0')+nr;
 	}
 
-	if (WIDGET.theme != 'default') {
-		window.addEventListener('resize', function(){
-			var widget = document.getElementById('sane-sart-counter');
-			var width = widget.offsetWidth - 20;
-			var margin = width/24;
-			width = width - margin;
-			document.getElementById('ss-counter-display').style.fontSize = Math.floor(width/6) + 'px';
-			document.getElementById('ss-counter-display').style.letterSpacing = Math.floor(width/12) + 'px';
-			document.getElementById('ss-counter-display').style.paddingLeft = margin + 'px';
-			
+	
+	window.addEventListener('resize.WIDGET', function(){
+		if (WIDGET.theme == 'default') return;
+		var widget = document.getElementById('sane-sart-counter');
+		var width = widget.offsetWidth - 20;
+		var counters = widget.getElementsByClassName('ss-count');
+		
+		for (var i = 0; i < counters.length; i++) {
+			var count = counters[i];
+			var numbers = Array.from(count.innerHTML);
+			var counter = "";
+			for (var j in numbers) {
+				counter+= "<div class='count-number'>"+numbers[j]+"</div>";
+			}
+			count.innerHTML = counter;
+		}
+		document.getElementById('ss-counter-display').style.fontSize = Math.floor(width/6) + 'px';
+		/*var margin = width/24;
+		width = width - margin;
+		
+		document.getElementById('ss-counter-display').style.letterSpacing = Math.floor(width/12) + 'px';
+		document.getElementById('ss-counter-display').style.paddingLeft = margin + 'px';*/
+		
 
-		}, true);
-		//setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 450);
-	}
+	}, true);
+	
 
 	function fix_layout() {
-		if (WIDGET.theme != 'default') { 
-			window.dispatchEvent(new Event('resize'));
-		}
+		window.dispatchEvent(new Event('resize.WIDGET'));
 	}
 
 
