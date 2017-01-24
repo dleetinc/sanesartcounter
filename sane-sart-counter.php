@@ -1,16 +1,45 @@
 <?php
 
-$my_img = imagecreate( 200, 80 );
-$background = imagecolorallocate( $my_img, 0, 0, 255 );
-$text_colour = imagecolorallocate( $my_img, 255, 255, 0 );
-$line_colour = imagecolorallocate( $my_img, 128, 255, 0 );
-imagestring( $my_img, 4, 30, 25, date('Y-m-d H:i:s'), $text_colour );
-imagesetthickness ( $my_img, 5 );
-imageline( $my_img, 30, 45, 165, 45, $line_colour );
+$pt_to_px = 1;// 0.7777777777777778;
 
-header( "Content-type: image/png" );
-imagepng( $my_img );
-imagecolordeallocate( $line_color );
-imagecolordeallocate( $text_color );
-imagecolordeallocate( $background );
-imagedestroy( $my_img );
+$img = imagecreatefrompng( "theme/php-base-image.png" );
+$width = 280 * $pt_to_px;
+$margin = 10 * $pt_to_px;;
+
+$text_color = imagecolorallocate($img, 236, 236, 236);
+$font = 'theme/micross.ttf';
+$fontB = 'theme/microssB.ttf';
+
+$date = strtoupper(date('l, F j, Y'));
+$footer = "SEXUAL ASSAULTS SINCE ".date("1.01.Y");
+$rate = '1.85';
+
+$now = time();
+$then = strtotime(date('1/1/Y'));
+$diff = $now - $then;
+
+$minutes = $diff / 60;
+$count = round($minutes/$rate);
+$count = str_pad($count, 6, "0", STR_PAD_LEFT);
+$numbers = str_split($count);
+$number_box_width = ($width - $margin) / 6;
+
+
+imagettftext($img, 8, 0, 65, 20, $text_color, $font, $date);
+imagettftext($img, 10, 0, 110, 45, $text_color, $fontB, $rate);
+
+foreach ($numbers as $k=>$number) {
+	$box = imagettfbbox( 35 , 0 , $font , $number );
+		
+	$x = floor(($number_box_width - $box[2]) / 2);
+	imagettftext($img, 35, 0, ($x + ($k * $number_box_width)) + 5, 135, $text_color, $font, $number);
+}
+
+imagettftext($img, 10, 0, 22, 178, $text_color, $font, $footer);
+
+
+header('Content-Type: image/png');
+imagepng($img);
+imagedestroy($img);
+/*
+*/
