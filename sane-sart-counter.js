@@ -83,6 +83,8 @@ var WIDGET = (function(WIDGET) {
 	template += "<strong>Inline <small><em>(add inside page content)</em></small></strong>";
 	template += "<textarea><script>var WIDGET = {'theme': 'inline'};</script>\n<script src='"+base_url+"sane-sart-counter.js'></script></textarea>";
 
+	template += "<div><a href='http://www.sane-sart.com/rape-clock-instructions/'>Click Here</a> for detailed instructions and illustrated examples of how to use this widget on your own site.</div>"
+
 	template += "</div>";
 	template += "</div>"
 

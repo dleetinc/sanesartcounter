@@ -119,7 +119,7 @@
 	left: 50%;
 	margin-left: -125px;
 
-	height: 286px;
+	height: 355px;
 	top: 50%;
 	margin-top: -93px;
 
@@ -147,6 +147,7 @@
 .ss-modal-body textarea {
 	width: 100%;
 	font-size: 11px;
+	padding: 0;
 }
 .ss-modal-close {
 	position: absolute;
