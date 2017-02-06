@@ -6,7 +6,7 @@ var WIDGET = (function(WIDGET) {
 	var index = scripts.length - 1;
 	var myScript = scripts[index];
 
-	if (WIDGET.base_url === undefined) WIDGET.base_url = myScript.src.replace('sane-sart-count.js');//https://cdn.rawgit.com/dleetinc/sanesartcounter/bde42060/';
+	if (WIDGET.base_url === undefined) WIDGET.base_url = myScript.src.replace('sane-sart-count.js', '');//https://cdn.rawgit.com/dleetinc/sanesartcounter/bde42060/';
 	WIDGET.link = 'http://www.sane-sart.com/';
 	
 	var base_url = WIDGET.base_url;
