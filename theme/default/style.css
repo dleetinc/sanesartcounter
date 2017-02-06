@@ -72,6 +72,14 @@
 .ss-counter-text {
 	text-transform: uppercase;
 }
+.ss-count:last-child {
+	display: table;
+	width: 100%;
+}
+.ss-count .count-number {
+	display: table-cell;
+	text-align: center;
+}
 .ss-counter-display {
 	width: 100%;
 	height: 60px;

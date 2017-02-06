@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('America/Chicago');
+
 $pt_to_px = 1;// 0.7777777777777778;
 
 $img = imagecreatefrompng( "theme/php-base-image.png" );
@@ -10,7 +12,7 @@ $text_color = imagecolorallocate($img, 236, 236, 236);
 $font = 'theme/micross.ttf';
 $fontB = 'theme/microssB.ttf';
 
-$date = strtoupper(date('l, F j, Y - G:i:s'));
+$date = strtoupper(date('l, F j, Y - G:i:s'). ' CST');
 $footer = "SEXUAL ASSAULTS SINCE ".date("1.01.Y");
 $rate = '1.85';
 
@@ -25,7 +27,7 @@ $numbers = str_split($count);
 $number_box_width = ($width - $margin) / 6;
 
 
-imagettftext($img, 8, 0, 32, 20, $text_color, $font, $date);
+imagettftext($img, 8, 0, 28, 20, $text_color, $font, $date);
 imagettftext($img, 10, 0, 110, 45, $text_color, $fontB, $rate);
 
 foreach ($numbers as $k=>$number) {

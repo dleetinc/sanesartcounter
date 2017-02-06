@@ -231,19 +231,21 @@ var WIDGET = (function(WIDGET) {
 
 	
 	window.addEventListener('resize.WIDGET', function(){
-		if (WIDGET.theme == 'default') return;
+		//if (WIDGET.theme == 'default') return;
 		var widget = document.getElementById('sane-sart-counter');
 		var width = widget.offsetWidth - 20;
 		var counters = widget.getElementsByClassName('ss-count');
 		
 		for (var i = 0; i < counters.length; i++) {
 			var count = counters[i];
+			if (count.getAttribute('data-handled') == 'true') continue;
 			var numbers = Array.from(count.innerHTML);
 			var counter = "";
 			for (var j in numbers) {
 				counter+= "<div class='count-number'>"+numbers[j]+"</div>";
 			}
 			count.innerHTML = counter;
+			count.setAttribute('data-handled', 'true');
 		}
 		document.getElementById('ss-counter-display').style.fontSize = Math.floor(width/6) + 'px';
 		/*var margin = width/24;
