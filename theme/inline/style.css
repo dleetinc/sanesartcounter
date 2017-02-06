@@ -119,7 +119,7 @@
 	left: 50%;
 	margin-left: -125px;
 
-	height: 355px;
+	height: 330px;
 	top: 50%;
 	margin-top: -93px;
 
@@ -148,6 +148,7 @@
 	width: 100%;
 	font-size: 11px;
 	padding: 0;
+	height: 50px;
 }
 .ss-modal-close {
 	position: absolute;
