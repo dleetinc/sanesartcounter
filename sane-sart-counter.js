@@ -7,7 +7,7 @@ var WIDGET = (function(WIDGET) {
 	var myScript = scripts[index];
 
 	if (WIDGET.base_url === undefined) WIDGET.base_url = myScript.src.replace('sane-sart-counter.js', '');//https://cdn.rawgit.com/dleetinc/sanesartcounter/bde42060/';
-	WIDGET.link = 'http://www.sane-sart.com/';
+	WIDGET.link = 'http://www.sane-sart.com/rape-clock/';
 	
 	var base_url = WIDGET.base_url;
 
