@@ -1,6 +1,6 @@
 var WIDGET = (function(WIDGET) {
 
-	if (WIDGET.base_url === undefined) WIDGET.rate = '1.63';
+	if (WIDGET.rate === undefined) WIDGET.rate = '1.63';
 
 	var scripts = document.getElementsByTagName('script');
 	var index = scripts.length - 1;
