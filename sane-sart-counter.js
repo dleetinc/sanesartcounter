@@ -67,7 +67,7 @@ var WIDGET = (function(WIDGET) {
 	template += "<span>"+ date_r +"</span>";
 	template += " - <span id='ss-clock'></span>";
 	template += "</div>";
-	template += "<div class='ss-stat-info'>Every <strong>"+ WIDGET.rate +" minutes</strong>*<br>an American is sexually assaulted.</div>";
+	template += "<div class='ss-stat-info'>Every <strong>"+ (WIDGET.rate*60) +" seconds</strong>*<br>an American is sexually assaulted.</div>";
 	template += "<div class='ss-counter-display' id='ss-counter-display'></div>";
 	template += "<div class='ss-counter-text'>Sexual assaults since 1.01."+year+"</div>";
 	template += "</div>";
