@@ -14,7 +14,7 @@ $fontB = 'theme/microssB.ttf';
 
 $date = strtoupper(date('l, F j, Y - G:i:s'). ' CST');
 $footer = "SEXUAL ASSAULTS SINCE ".date("1.01.Y");
-$rate = '1.85';
+$rate = '1.63';
 
 $now = time();
 $then = strtotime(date('1/1/Y'));
@@ -28,7 +28,7 @@ $number_box_width = ($width - $margin) / 6;
 
 
 imagettftext($img, 8, 0, 28, 20, $text_color, $font, $date);
-imagettftext($img, 10, 0, 110, 45, $text_color, $fontB, $rate);
+imagettftext($img, 10, 0, 110, 45, $text_color, $fontB, $rate*60);
 
 foreach ($numbers as $k=>$number) {
 	$box = imagettfbbox( 35 , 0 , $fontB , $number );
